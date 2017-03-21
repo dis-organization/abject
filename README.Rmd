@@ -1,0 +1,29 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+
+```{r}
+library(abject)
+
+x <- raad$new("south-ice")
+x$get_date("2011-01-01")
+x$get_date_range(c("2011-01-01", "2011-01-31"))
+## what are we dealing with here
+x$summary_files()
+
+x$calculate_climatology(seq(as.Date("2017-01-01"), by = "5 days", length = 15))
+## maybe we need to update
+x$refresh_files()
+
+```
